@@ -1,7 +1,8 @@
 <p align="center">
-  <img src="images/environmental-modelling-banner.png"
-       alt="Environmental Modelling"
-       width="100%">
+  <img
+    src="https://raw.githubusercontent.com/EnvModelling/EnvModelling/main/images/environmental-modelling-banner.png"
+    alt="Environmental Modelling"
+    width="100%">
 </p>
 
 Computational models and practical exercises used in environmental science
