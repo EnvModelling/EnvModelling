@@ -1,0 +1,14 @@
+# Persistent local Docker workspace
+student_work/*
+!student_work/.gitkeep
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Locally generated SSH host keys
+ssh_host_keys/*
+!ssh_host_keys/.gitkeep

@@ -1,0 +1,17 @@
+services:
+  envmodelling:
+    image: envmodelling:test
+    container_name: envmodelling
+
+    ports:
+      # SSH/SFTP is accessible from this computer only.
+      - "127.0.0.1:2022:22"
+
+    volumes:
+      # Persistent workspace on the host computer.
+      - ./student_work:/home/student/work
+
+      # Persistent SSH identity.
+      - ./ssh_host_keys:/ssh-host-keys
+
+    restart: unless-stopped
