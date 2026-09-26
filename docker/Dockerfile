@@ -66,6 +66,10 @@ RUN useradd --create-home --shell /bin/bash student \
     && chown -R student:student /home/student \
     && usermod -aG sudo student
 
+# Start interactive student shells in the persistent work directory
+RUN echo 'cd "$HOME/work"' >> /home/student/.bashrc \
+    && chown student:student /home/student/.bashrc
+
 # SSH is retained because SSH/SFTP form part of the teaching workflow,
 # and X11 forwarding is useful for advanced/research use.
 RUN printf '%s\n' \
