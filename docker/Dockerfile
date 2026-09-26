@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-matplotlib \
 	python3-mpltoolkits.basemap \
-	python3-mpltoolkits.basemap-data \
+	python-mpltoolkits.basemap-data \
     python3-netcdf4 \
     python3-numpy \
     python3-pandas \
