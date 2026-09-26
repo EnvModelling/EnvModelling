@@ -1,6 +1,6 @@
 services:
   envmodelling:
-    image: envmodelling:test
+    image: ghcr.io/envmodelling/envmodelling:latest
     container_name: envmodelling
 
     ports:

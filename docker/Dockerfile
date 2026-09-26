@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ubuntu:24.04
+FROM ubuntu:22.04
 
 LABEL org.opencontainers.image.title="EnvModelling"
 LABEL org.opencontainers.image.description="Environmental modelling environment for teaching and research"
@@ -28,6 +28,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libnetcdff-dev \
     make \
     mpich \
+    libmpich-dev \
+    cm-super \
+    dvipng \
     nano \
     ncview \
     netcdf-bin \
