@@ -41,22 +41,44 @@ An Intel Mac normally reports `x86_64` for:
 uname -m
 ```
 
-## 4. Get and start EnvModelling
+## 4. Download EnvModelling
 
-``` bash
+You do **not** need Git installed on macOS to use EnvModelling.
+
+**Option 1 — Download ZIP (recommended for beginners)**
+
+1. Visit [EnvModelling on GitHub](https://github.com/EnvModelling/EnvModelling).
+2. Click the green **Code** button and select **Download ZIP**.
+3. Extract the ZIP file. The extracted folder is normally named `EnvModelling-main`.
+4. Open **Terminal** in the extracted folder (the folder containing `compose.yaml`).
+
+**Option 2 — Clone with Git**
+
+If you already have Git installed, open Terminal and run:
+
+```bash
 git clone https://github.com/EnvModelling/EnvModelling.git
 cd EnvModelling
+```
+
+Git users can later run `git pull` to update the configuration files.
+
+Whichever option you choose, run the Docker commands below **from the folder containing `compose.yaml`**. ZIP users need to download a fresh ZIP if the configuration files change; `docker compose pull` updates the Docker image only.
+
+## 8. Start EnvModelling
+
+```bash
 docker compose pull
 docker compose up -d
 ```
 
 Check:
 
-``` bash
+```bash
 docker compose ps
 ```
 
-## 5. Connect
+## 8. Connect
 
 ``` bash
 ssh -p 2022 student@localhost
@@ -74,7 +96,7 @@ You should arrive in:
 /home/student/work
 ```
 
-## 6. Persistent work
+## 8. Persistent work
 
 Keep all model repositories and output in:
 
@@ -97,7 +119,7 @@ git clone https://github.com/EnvModelling/shallow-water-model-on-sphere.git
 
 Files there survive container replacement.
 
-## 7. Stop, restart and update
+## 8. Stop, restart and update
 
 ``` bash
 exit

@@ -113,14 +113,23 @@ docker --version
 docker compose version
 ```
 
-### 2. Get EnvModelling
+### 2. Download EnvModelling
+
+You do **not** need Git installed on your computer.
+
+1. Visit [EnvModelling on GitHub](https://github.com/EnvModelling/EnvModelling).
+2. Click the green **Code** button and select **Download ZIP**.
+3. Extract the downloaded ZIP file.
+4. Open a terminal in the extracted `EnvModelling-main` folder.
+
+Alternatively, if you already have Git installed, you can clone the repository:
 
 ```bash
 git clone https://github.com/EnvModelling/EnvModelling.git
 cd EnvModelling
 ```
 
-Alternatively, download this repository as a ZIP file from GitHub and extract it.
+Once you have opened a terminal in the EnvModelling folder, continue with the Docker instructions below.
 
 ### 3. Download and start the environment
 

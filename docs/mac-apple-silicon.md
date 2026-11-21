@@ -37,15 +37,29 @@ uname -m
 
 An Apple Silicon Mac normally reports `arm64`.
 
-## 3. Get EnvModelling
+## 3. Download EnvModelling
 
-``` bash
+You do **not** need Git installed on macOS to use EnvModelling.
+
+**Option 1 — Download ZIP (recommended for beginners)**
+
+1. Visit [EnvModelling on GitHub](https://github.com/EnvModelling/EnvModelling).
+2. Click the green **Code** button and select **Download ZIP**.
+3. Extract the ZIP file. The extracted folder is normally named `EnvModelling-main`.
+4. Open **Terminal** in the extracted folder (the folder containing `compose.yaml`).
+
+**Option 2 — Clone with Git**
+
+If you already have Git installed, open Terminal and run:
+
+```bash
 git clone https://github.com/EnvModelling/EnvModelling.git
 cd EnvModelling
 ```
 
-Alternatively, download the repository as a ZIP file from GitHub and
-extract it.
+Git users can later run `git pull` to update the configuration files.
+
+Whichever option you choose, run the Docker commands below **from the folder containing `compose.yaml`**. ZIP users need to download a fresh ZIP if the configuration files change; `docker compose pull` updates the Docker image only.
 
 ## 4. Start EnvModelling
 

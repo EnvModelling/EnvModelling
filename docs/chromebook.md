@@ -70,12 +70,33 @@ docker --version
 docker compose version
 ```
 
-## 5. Get EnvModelling
+## 5. Download EnvModelling
 
-``` bash
+You do **not** need Git installed on your Chromebook to use EnvModelling.
+
+**Option 1 — Download ZIP (recommended for beginners)**
+
+1. Visit [EnvModelling on GitHub](https://github.com/EnvModelling/EnvModelling).
+2. Click the green **Code** button and select **Download ZIP**.
+3. In the ChromeOS **Files** app, extract the ZIP file and copy the extracted `EnvModelling-main` folder into **Linux files**.
+4. Open the **Linux Terminal** and enter the extracted folder:
+
+```bash
+cd ~/EnvModelling-main
+```
+
+**Option 2 — Clone with Git**
+
+If Git is already installed in the Linux environment, run:
+
+```bash
 git clone https://github.com/EnvModelling/EnvModelling.git
 cd EnvModelling
 ```
+
+Git users can later run `git pull` to update the configuration files.
+
+Whichever option you choose, run the Docker commands below **from the folder containing `compose.yaml`**. ZIP users need to download a fresh ZIP if those configuration files change; `docker compose pull` updates the Docker image only.
 
 ## 6. Start EnvModelling
 

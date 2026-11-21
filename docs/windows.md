@@ -35,18 +35,29 @@ docker compose version
 
 Both commands should report version information.
 
-## 3. Get EnvModelling
+## 3. Download EnvModelling
 
-If Git is installed:
+You do **not** need Git installed on Windows to use EnvModelling.
 
-``` powershell
+**Option 1 — Download ZIP (recommended for beginners)**
+
+1. Visit [EnvModelling on GitHub](https://github.com/EnvModelling/EnvModelling).
+2. Click the green **Code** button and select **Download ZIP**.
+3. In File Explorer, right-click the downloaded ZIP and select **Extract All**.
+4. Open the extracted `EnvModelling-main` folder. In File Explorer, right-click an empty area and select **Open in Terminal** (or open PowerShell and navigate to that folder).
+
+**Option 2 — Clone with Git**
+
+If you already have Git installed, open PowerShell or Windows Terminal and run:
+
+```powershell
 git clone https://github.com/EnvModelling/EnvModelling.git
 cd EnvModelling
 ```
 
-If you do not have Git, download the EnvModelling repository as a ZIP
-file from GitHub, extract it, and open PowerShell or Windows Terminal in
-the extracted `EnvModelling` folder.
+Git users can later run `git pull` to update the configuration files.
+
+Whichever option you choose, run the Docker commands below **from the folder containing `compose.yaml`**. If you downloaded a ZIP, download a new copy if the configuration files change; `docker compose pull` updates the Docker image, not these files.
 
 ## 4. Start EnvModelling
 
