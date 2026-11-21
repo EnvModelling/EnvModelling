@@ -37,31 +37,39 @@ Both commands should report version information.
 
 ## 3. Download EnvModelling
 
-You do **not** need Git installed on Windows to use EnvModelling.
+You do **not** need Git installed on Windows to get the setup files.
 
 **Option 1 — Download ZIP (recommended for beginners)**
 
 1. Visit [EnvModelling on GitHub](https://github.com/EnvModelling/EnvModelling).
-2. Click the green **Code** button and select **Download ZIP**.
-3. In File Explorer, right-click the downloaded ZIP and select **Extract All**.
-4. Open the extracted `EnvModelling-main` folder. In File Explorer, right-click an empty area and select **Open in Terminal** (or open PowerShell and navigate to that folder).
+2. Select **Code → Download ZIP**.
+3. In File Explorer, extract the ZIP (for example, using **Extract All**).
+4. Open the extracted `EnvModelling-main` folder. Make sure you are in the folder containing `compose.yaml`, not its parent folder.
+5. Right-click an empty area inside that folder and choose **Open in Terminal**. On some Windows versions, you may need to choose **Show more options** first. Alternatively, click File Explorer's address bar, type `powershell`, and press Enter.
+
+This opens PowerShell **in the correct folder**, so you do not need to navigate from `C:\Windows\System32`.
 
 **Option 2 — Clone with Git**
 
-If you already have Git installed, open PowerShell or Windows Terminal and run:
+If Git is already installed, open PowerShell and run:
 
 ```powershell
+cd ~
 git clone https://github.com/EnvModelling/EnvModelling.git
 cd EnvModelling
 ```
 
-Git users can later run `git pull` to update the configuration files.
+`cd ~` takes you to your Windows home folder (usually `C:\Users\your-username`), even if PowerShell initially opened in `C:\Windows\System32`.
 
-Whichever option you choose, run the Docker commands below **from the folder containing `compose.yaml`**. If you downloaded a ZIP, download a new copy if the configuration files change; `docker compose pull` updates the Docker image, not these files.
+Whichever option you choose, check that `compose.yaml` is present in your current folder before continuing:
+
+```powershell
+dir compose.yaml
+```
 
 ## 4. Start EnvModelling
 
-From the `EnvModelling` folder:
+From the folder containing `compose.yaml` (normally `EnvModelling-main` for ZIP downloads or `EnvModelling` for Git clones):
 
 ``` powershell
 docker compose pull
@@ -117,7 +125,7 @@ pwd
 This directory is shared with:
 
 ``` text
-EnvModelling\student_work
+student_work (inside your extracted or cloned EnvModelling folder)
 ```
 
 on Windows. Files in this directory remain when the Docker container is
@@ -141,7 +149,7 @@ Leave SSH:
 exit
 ```
 
-Then, in PowerShell from the `EnvModelling` folder:
+Then, in PowerShell from the folder containing `compose.yaml`:
 
 ``` powershell
 docker compose down
@@ -157,7 +165,7 @@ Your files in `student_work` are retained.
 
 ## 8. Update the environment
 
-From the `EnvModelling` folder:
+From the folder containing `compose.yaml` (normally `EnvModelling-main` for ZIP downloads or `EnvModelling` for Git clones):
 
 ``` powershell
 docker compose pull
