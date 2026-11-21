@@ -99,6 +99,9 @@ while on campus or the Docker environment on a suitable personal computer.
 
 The container supports both `linux/amd64` and `linux/arm64`.
 
+**Git is included inside the Docker environment.** You do not need to install
+Git on your own computer to clone the modelling repositories once connected.
+
 ## Quick start
 
 ### 1. Install Docker
@@ -120,7 +123,10 @@ You do **not** need Git installed on your computer.
 1. Visit [EnvModelling on GitHub](https://github.com/EnvModelling/EnvModelling).
 2. Click the green **Code** button and select **Download ZIP**.
 3. Extract the downloaded ZIP file.
-4. Open a terminal in the extracted `EnvModelling-main` folder.
+4. Open a terminal in the extracted `EnvModelling-main` folder (the folder
+   containing `compose.yaml`). On Windows, open that folder in File Explorer,
+   right-click an empty space and select **Open in Terminal**. On macOS or
+   Linux, open Terminal in that folder.
 
 Alternatively, if you already have Git installed, you can clone the repository:
 
@@ -129,7 +135,10 @@ git clone https://github.com/EnvModelling/EnvModelling.git
 cd EnvModelling
 ```
 
-Once you have opened a terminal in the EnvModelling folder, continue with the Docker instructions below.
+Both methods work equally well. The folder is normally called
+`EnvModelling-main/` when downloaded as a ZIP, or `EnvModelling/` when cloned
+with Git. Run the following commands **on your own computer**, from whichever
+folder contains `compose.yaml`.
 
 ### 3. Download and start the environment
 
@@ -138,7 +147,13 @@ docker compose pull
 docker compose up -d
 ```
 
+The initial image download may take some time. Check that the container is
+running with `docker compose ps`. Docker Desktop must be running on Windows
+and macOS.
+
 ### 4. Connect using SSH
+
+**On your own computer**, run:
 
 ```bash
 ssh -p 2022 student@localhost
@@ -168,9 +183,11 @@ or, equivalently:
 
 ### 5. Clone the model you need
 
-Clone model repositories **from inside `~/work`**. For example:
+Git is already installed **inside the container**. After connecting via
+SSH, clone model repositories in `~/work`. For example:
 
 ```bash
+cd ~/work
 git clone https://github.com/EnvModelling/shallow-water-model-on-sphere.git
 cd shallow-water-model-on-sphere
 ```
@@ -182,13 +199,13 @@ Then follow the relevant practical sheet or model README.
 > **Important:** Keep model repositories, model output and other work inside
 > `~/work`.
 
-Inside the container, `~/work` is mapped to:
+Inside the container, `~/work` is mapped to the `student_work/` directory
+inside the folder you downloaded or cloned on your computer. For example:
 
-```text
-EnvModelling/student_work/
-```
+- ZIP download: `EnvModelling-main/student_work/`
+- Git clone: `EnvModelling/student_work/`
 
-on your computer. Files there remain available when the container is stopped,
+Files there remain available when the container is stopped,
 updated or replaced.
 
 Files saved elsewhere inside the container are not intended to be persistent
@@ -201,6 +218,8 @@ Leave the SSH session with:
 ```bash
 exit
 ```
+
+Back in your computer’s terminal, in the folder containing `compose.yaml`:
 
 Stop the environment:
 
@@ -223,6 +242,13 @@ docker compose up -d
 ```
 
 Files in `student_work/` are retained.
+
+**Updating the configuration files:** `docker compose pull` updates the
+Docker image, but not the downloaded repository files. If you used Git,
+run `git pull` in the cloned `EnvModelling/` folder when configuration updates are
+needed. If you used Download ZIP, download and extract a fresh ZIP instead.
+Before replacing an existing folder, keep a copy of its `student_work/`
+directory so that your model files are not lost.
 
 ## SSH and SFTP
 
